@@ -4,6 +4,7 @@
 const url = 'https://startpage.service.webproject.za.net/api'
 const req = new Request(url)
 const result = await req.loadJSON()
+
 let yesterday = new Date();
 yesterday.setDate(yesterday.getDate() - 1);
 const [date, month, year] = yesterday.toLocaleDateString().split("/");
@@ -12,6 +13,7 @@ let yesterdayRead = result.goalChartData.substr(result.goalChartData.indexOf(yes
 if (yesterdayRead.includes(',')){
   yesterdayRead = yesterdayRead/substr(0, 1);
 }
+
 if (config.runsInWidget) {
   // create and show widget
   let widget = createWidget("Read yesterday", `${yesterdayRead} m`, "#41cb86")
@@ -27,22 +29,20 @@ if (config.runsInWidget) {
     alert.presentAlert();
   }
 }
-function createRow(title, number) {
-  let row = new UITableRow()
-  row.addText(title)
-  row.addText(number.toString()).rightAligned()
-  return row
-}
+
 function createWidget(pretitle, title, color) {
   let widget = new ListWidget()
   widget.backgroundColor = new Color(color)
   widget.centerAlignContent()
+
   let preTxt = widget.addText(pretitle)
   preTxt.textColor = Color.white()
   preTxt.textOpacity = 0.8
   preTxt.textSize = 16
+
   let titleTxt = widget.addText(title)
   titleTxt.textColor = Color.white()
   titleTxt.textSize = 23
+  
   return widget
 }
