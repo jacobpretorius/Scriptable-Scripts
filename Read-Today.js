@@ -4,7 +4,7 @@
 const togglProjectId = 123456789;
 
 // Runs using this Azure Function -> https://github.com/jacobpretorius/Azure-Functions/blob/master/src/TogglProjectTrackedCheck/index.js
-const azureFuncCode = "SECRET";
+const azureFuncCode = 'SECRET';
 const url = `https://something.azurewebsites.net/api/TogglProjectTrackedCheck?code=${azureFuncCode}==&projectId=${togglProjectId}`;
 
 const req = new Request(url);
@@ -12,8 +12,9 @@ const result = await req.loadJSON();
 const readMinutes = Math.round(result.trackedDurationInMs / 60);
 
 if (config.runsInWidget) {
-  // create and show widget
-  let widget = createWidget("Read today", `${readMinutes} m`, "#41cb86");
+  // Create and show widget
+  let colour = readMinutes >= 30 ? '#41cb86' : '#33C6FF';
+  let widget = createWidget("Read today", `${readMinutes} m`, colour);
   Script.setWidget(widget);
   Script.complete();
 } else {
