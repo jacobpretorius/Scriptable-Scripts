@@ -31,7 +31,8 @@ if (config.runsInWidget) {
 function createWidget(pretitle, title, color) {
   let widget = new ListWidget();
   widget.backgroundColor = new Color(color);
-  widget.centerAlignContent();
+  // This seems to be deprecated.
+  //widget.centerAlignContent();
   
   let preTxt = widget.addText(pretitle);
   preTxt.textColor = Color.white();
