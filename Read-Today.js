@@ -4,8 +4,8 @@
 const togglProjectId = 123456789;
 
 // Runs using this Azure Function -> https://github.com/jacobpretorius/Azure-Functions/blob/master/src/TogglProjectTrackedCheck/index.js
-const azureFuncCode = 'SECRET';
-const url = `https://something.azurewebsites.net/api/TogglProjectTrackedCheck?code=${azureFuncCode}&projectId=${togglProjectId}`;
+// Get the deployed URL from your Azure functions portal and modify below by adding &projectId=${togglProjectId} to the end
+const url = `https://something.azurewebsites.net/api/TogglProjectTrackedCheck?code=SECRET&projectId=${togglProjectId}`;
 
 const req = new Request(url);
 const result = await req.loadJSON();
