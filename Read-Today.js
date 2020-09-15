@@ -5,7 +5,7 @@ const togglProjectId = 123456789;
 
 // Runs using this Azure Function -> https://github.com/jacobpretorius/Azure-Functions/blob/master/src/TogglProjectTrackedCheck/index.js
 const azureFuncCode = 'SECRET';
-const url = `https://something.azurewebsites.net/api/TogglProjectTrackedCheck?code=${azureFuncCode}==&projectId=${togglProjectId}`;
+const url = `https://something.azurewebsites.net/api/TogglProjectTrackedCheck?code=${azureFuncCode}&projectId=${togglProjectId}`;
 
 const req = new Request(url);
 const result = await req.loadJSON();
