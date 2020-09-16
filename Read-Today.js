@@ -1,7 +1,9 @@
 // Variables used by Scriptable.
 // These must be at the very top of the file. Do not edit.
 // icon-color: deep-green; icon-glyph: user-md;
-const togglProjectId = 123456789;
+
+const togglProjectId = 123456789; // The Project ID in Toggl where the time is tracked.
+const readingGoalInMinutes = 30; // Change this to your goal time.
 
 // Runs using this Azure Function -> https://github.com/jacobpretorius/Azure-Functions/blob/master/src/TogglProjectTrackedCheck/index.js
 // Get the deployed URL from your Azure functions portal and modify below by adding &projectId=${togglProjectId} to the end
@@ -13,7 +15,7 @@ const readMinutes = Math.round(result.trackedDurationInMs / 60);
 
 if (config.runsInWidget) {
   // Create and show widget
-  let colour = readMinutes >= 30 ? '#41cb86' : '#33C6FF';
+  let colour = readMinutes >= readingGoalInMinutes ? '#41cb86' : '#33C6FF';
   let widget = createWidget("Read today", `${readMinutes} m`, colour);
   Script.setWidget(widget);
   Script.complete();
@@ -31,8 +33,6 @@ if (config.runsInWidget) {
 function createWidget(pretitle, title, color) {
   let widget = new ListWidget();
   widget.backgroundColor = new Color(color);
-  // This seems to be deprecated.
-  //widget.centerAlignContent();
   
   let preTxt = widget.addText(pretitle);
   preTxt.textColor = Color.white();
