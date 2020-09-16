@@ -2,8 +2,8 @@
 // These must be at the very top of the file. Do not edit.
 // icon-color: deep-green; icon-glyph: user-md;
 
-// Toggl time tracking for reading
-const togglProjectId = 123456789; // the project you use to track your reading (or whatever you want the widget to show)
+// The Toggl Project ID you use to track your reading (or whatever else you want the widget to show)
+const togglProjectId = 123456789;
 
 // Runs using this Azure Function -> https://github.com/jacobpretorius/Azure-Functions/blob/master/src/TodayView/index.js
 // Get the deployed URL from your Azure functions portal and modify below by adding &projectId=${togglProjectId} to the end
