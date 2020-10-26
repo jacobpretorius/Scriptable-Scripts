@@ -15,7 +15,7 @@ if (config.runsInWidget) {
   // create and show widget
   let colour = '#41cb86';
   
-  let widget = createWidget('Trees planted', result.TreesPlanted.toString(), 'CO2 Offset', `${result.CarbonOffset}t`, colour);
+  let widget = createWidget('Trees planted', result.TreesPlanted.toString(), 'CO2 offset', `${result.CarbonOffset}t`, colour);
   Script.setWidget(widget);
   Script.complete();
 } else {
